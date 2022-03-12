@@ -1,0 +1,131 @@
+.add-log-page{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 100px;
+}
+
+.inputs{
+    width: 400px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    
+
+}
+
+.input{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 0px 0;
+    padding: 5px;
+}
+
+.input label{
+    font-size: 18px;
+}
+
+.input input{
+    padding: 10px;
+    width: 100px;
+}
+
+.problems-wrapper{
+    width: 600px;
+    height: 350px;
+}
+
+.problems-header{
+    width: 100%;
+    background-color: #222;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.problems-body{
+    border: 1px grey solid;
+    width: 100%;
+    min-height: 250px;
+}
+
+.date-input{
+    margin-bottom: 10px;
+}
+
+.classification-title{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.issue-modal-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(34, 34, 34, 0.863);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.issue-modal{
+    width: 600px;
+    height: 400px;
+}
+
+.issue-modal-header{
+    height: 62px;
+    background-color: #222;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    color: #fff;
+}
+
+.issue-modal-body{
+    min-height: 338px;
+    width: 100%;
+    background-color: #fff;
+    padding: 15px;
+}
+
+.issue-title-input{
+    width: 100%;
+    padding: 20px;
+    font-size: 24px;
+}
+
+.issue-text-input{
+    width: 100%;
+    resize: none;
+    height: 100%;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.new-issue-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.issue-tags-wrapper{
+    display: flex;
+    width: 100%;
+    padding: 20px;
+}
+
+.close-btn{
+    font-size: 32px;
+    cursor: pointer;
+}

@@ -1,0 +1,22 @@
+.issue-tag{
+    padding: 2px 5px;
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    border-radius: 3px;
+    border: 2px transparent solid;
+    cursor: pointer;
+}
+
+.yellow{
+    background-color: rgb(173, 173, 173);
+}
+
+.red{
+    background-color: rgb(160, 160, 160);
+}
+.selected{
+    border: 2px rgb(34, 190, 241) solid;
+}

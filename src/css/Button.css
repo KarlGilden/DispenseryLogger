@@ -1,0 +1,13 @@
+button{
+    padding: 15px;
+    border: none;
+    background-color: #222;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+
+.invert{
+    background-color: #fff;
+    color: black;
+}
