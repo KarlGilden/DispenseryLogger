@@ -1,11 +1,13 @@
-import React, {useState, useRef} from 'react'
+import {useParams} from 'react-router-dom'
+import React, {useState, useRef, useEffect} from 'react'
 import Button from '../components/Button'
 import IssueTab from '../components/IssueTab'
 import Tag from '../components/Tag'
 import {IoMdClose} from 'react-icons/io'
 import {useNavigate} from 'react-router-dom'
 import '../css/AddLog.css'
-function AddLog() {
+function Editlog() {
+    let {id} = useParams()
     const navigate = useNavigate()
     const [issues, setIssues] = useState([{title: "Unplanned Blister Pack", notes:"placeholder placeholder placeholder", tags: ["Payment", "Other"]}, {title: "Problem with payment", notes:"placeholder placeholder placeholder", tags: ["Payment"]}])
     const [issueModal, setIssueModal] = useState(false)
@@ -32,16 +34,42 @@ function AddLog() {
     const yellowCardsRef = useRef();
     const covidRef = useRef();
 
+    useEffect(()=>{
+        getLog()
+    })
+
+    const getLog = async () => {
+        await fetch('https://localhost:44326/api/GetLog/'+id)
+        .then(response => response.json())
+        .then(data => {
+            dischargeRef.current.value = data.discharge
+            dateRef.current.value = data.date.slice(0, -9)    
+            outpRef.current.value = data.outp
+            GPRef.current.value = data.gp
+            EDRef.current.value = data.ed 
+            paediatricRef.current.value = data.paediatric
+            eyleaRef.current.value = data.eylea  
+            bicillinRef.current.value = data.bicillin
+            ferinjectRef.current.value = data.fennject   
+            binocritRef.current.value = data.binocrit
+            aclastaRef.current.value = data.aclasta    
+            blisterPacksRef.current.value = data.blisterPacks
+            compoundingRef.current.value = data.compounding  
+            yellowCardsRef.current.value = data.yellowCards
+            covidRef.current.value = data.covid
+        })
+    }       
 
     const handleSubmit = async () => {
         if(dateRef.current.value){
-            await fetch('https://localhost:44326/api/AddLog',
+            await fetch('https://localhost:44326/api/UpdateLog/'+id,
             {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                   },
                 body: JSON.stringify({
+                        "id": id,
                         "date": dateRef.current.value,
                         "discharge": dischargeRef.current.value ? dischargeRef.current.value : 0,
                         "outp": outpRef.current.value ? outpRef.current.value : 0,
@@ -60,13 +88,11 @@ function AddLog() {
                         "issues": issues
                 })
             })
-            setError("")
             navigate('/')
         } else{
             setError('Please enter the date')
 
         }
-        console.log(covidRef.current.value)
     }
 
     const showIssue = (issue) =>{
@@ -239,4 +265,4 @@ function AddLog() {
   )
 }
 
-export default AddLog
+export default Editlog

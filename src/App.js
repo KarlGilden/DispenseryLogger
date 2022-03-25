@@ -8,6 +8,8 @@ import {
 import Dashboard from './pages/dashboard';
 import Navbar from './components/Navbar';
 import AddLog from './pages/AddLog';
+import History from './pages/History';
+import Editlog from './pages/Editlog';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Dashboard/>} />
         <Route path="/add-log" element={<AddLog/>} />
+        <Route path="/history" element={<History/>} />
+        <Route path="/edit-log/:id" element={<Editlog/>} />
       </Routes>
     </Router>
   );
