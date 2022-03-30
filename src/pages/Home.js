@@ -29,7 +29,7 @@ function Home() {
                     <img className='logo' src={graphLogo} alt="" />
                     <h1 className='title'>Dispensary Logger</h1>
                 </div>
-                <p className='login-header'>Welcome to Dispensary logger. The aim of this webapp is to aid pharmacists keep daily logs of their pharmacy sales and issues, which can later be viewed and analysed</p>
+                <p className='login-header'>A webapp designed to help pharmacies keep logs of their sales and prescriptions as well as report any issues on any given day. Once enough logs are entered the data is displayed in the user's dashboard, allowing them to analyse their day to day operations and make more informed business decisions.</p>
             </div>
             <h3>Coming Soon... The backend is still in development but will be ready soon</h3>
             <div className="demo-description">
