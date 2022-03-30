@@ -7,15 +7,18 @@ import {useNavigate} from 'react-router-dom'
 import '../css/AddLog.css'
 function AddLog() {
     const navigate = useNavigate()
-    const [issues, setIssues] = useState([{title: "Unplanned Blister Pack", notes:"placeholder placeholder placeholder", tags: ["Payment", "Other"]}, {title: "Problem with payment", notes:"placeholder placeholder placeholder", tags: ["Payment"]}])
+
+    const [issues, setIssues] = useState([])
     const [issueModal, setIssueModal] = useState(false)
     const [newIssueModal, setNewIssueModal] = useState(false)
     const [currentIssue, setCurrentIssue] = useState({})
     const [currentTags, setCurrentTags] = useState([])
     const [issueError, setIssueError] = useState()
     const [error, setError] = useState()
+
     const titleRef = useRef();
     const notesRef = useRef();
+
     const dischargeRef = useRef();
     const dateRef = useRef();    
     const outpRef = useRef();    
@@ -91,7 +94,7 @@ function AddLog() {
         if(titleRef.current.value == '' || notesRef.current.value == '' || currentTags.length == 0){
             setIssueError('Please enter all fields')
         }else{
-            setIssues(issues => [...issues, {title: titleRef.current.value, notes: notesRef.current.value, tags: currentTags}])
+            setIssues(issues => [...issues, {title: titleRef.current.value, notes: notesRef.current.value, tags: currentTags.toString()}])
             setCurrentTags([])
             setIssueError('')
             closeNewIssue()

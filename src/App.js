@@ -5,22 +5,22 @@ import {
   Routes,
   Route
 } from 'react-router-dom'
-import Dashboard from './pages/dashboard';
-import Navbar from './components/Navbar';
-import AddLog from './pages/AddLog';
-import History from './pages/History';
-import Editlog from './pages/Editlog';
-
+import PrivateRoute from './components/PrivateRoute';
+import LoggedinRedirect from './components/LoggedinRedirect';
+import Home from './pages/Home';
+import SignupPage from './pages/SignupPage';
+import User from './pages/User';
+import { AuthProvider } from './contexts/AuthContext';
 function App() {
   return (
     <Router>
-      <Navbar/>
-      <Routes>
-        <Route path="/" element={<Dashboard/>} />
-        <Route path="/add-log" element={<AddLog/>} />
-        <Route path="/history" element={<History/>} />
-        <Route path="/edit-log/:id" element={<Editlog/>} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path='/' element={<LoggedinRedirect><Home/></LoggedinRedirect>}/>
+          <Route path='/signup' element={<LoggedinRedirect><SignupPage/></LoggedinRedirect>}/>
+          <Route path='/user/*' element={<PrivateRoute><User/></PrivateRoute>}/>
+        </Routes>
+        </AuthProvider>
     </Router>
   );
 }

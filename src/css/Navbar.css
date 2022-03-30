@@ -5,8 +5,8 @@
     position: sticky;
     top: 0;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    justify-content: center;
 }
 
 .nav-item{
@@ -16,8 +16,11 @@
     height: 100%;
     display: flex;
     align-items: center;
+    padding: 0px 10px;
 }
 
 .nav-item:hover{
     color: lightgrey;
+    background-color: #134563;
+    transition: 0.3s ease-in-out;
 }

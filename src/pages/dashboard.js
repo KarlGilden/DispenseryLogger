@@ -30,17 +30,21 @@ function Dashboard() {
           <p>loading...</p> 
           : 
           <div className='data-display'>
+            <h1>Statistics</h1>
             <div className="date-inputs">
-              <input type="date" 
-                value={startDate}
-                onChange={(e)=>{
-                  setStartDate(e.target.value)
-                }}/>
-              <input type="date"  
-              value={endDate}
-                onChange={(e)=>{
-                  setEndDate(e.target.value)
-                }}/>
+              <div className="date-range-inputs">
+                <input type="date" 
+                  value={startDate}
+                  onChange={(e)=>{
+                    setStartDate(e.target.value)
+                  }}/>
+                <input type="date"  
+                value={endDate}
+                  onChange={(e)=>{
+                    setEndDate(e.target.value)
+                  }}/>
+              </div>
+              
               <select 
                 name="select" 
                 id="select" 
@@ -61,8 +65,7 @@ function Dashboard() {
                 <option value="Ferinject">Ferinject</option>
                 <option value="Bicillin">Bicillin</option>
               </select>
-                <Button func={()=>setDataTimeframe("GetGraphData")} text={"Daily"} />
-                <Button func={()=>setDataTimeframe("GetGraphDataByMonth")} text={"Monthly"} />
+
 
             </div>
             <LineChart width={730} height={250} data={data}
@@ -73,7 +76,14 @@ function Dashboard() {
               <Tooltip />
               <Line type="monotone" dataKey="data" stroke="#8884d8" />
             </LineChart>
+
+            <div className="time-buttons">
+              <Button func={()=>setDataTimeframe("GetGraphData")} text={"Daily"} />
+              <Button func={()=>setDataTimeframe("GetGraphDataByMonth")} text={"Monthly"} />
+            </div>
+
           </div>
+          
         }
     </div>
     
