@@ -31,6 +31,7 @@ function Home() {
                 </div>
                 <p className='login-header'>Welcome to Dispensary logger. The aim of this webapp is to aid pharmacists keep daily logs of their pharmacy sales and issues, which can later be viewed and analysed</p>
             </div>
+            <h3>Coming Soon... The backend is still in development but will be ready soon</h3>
             <div className="demo-description">
                 <h3>Want to try it for yourself?</h3>
                 <p>Simply click on the "Demo Login" button and you will be directed to a fully functioning version of the webapp with prepopulated dataset.</p>
