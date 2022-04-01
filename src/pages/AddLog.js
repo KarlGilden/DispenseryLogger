@@ -5,9 +5,11 @@ import Tag from '../components/Tag'
 import {IoMdClose} from 'react-icons/io'
 import {useNavigate} from 'react-router-dom'
 import '../css/AddLog.css'
+import { useAuth } from '../contexts/AuthContext'
+
 function AddLog() {
     const navigate = useNavigate()
-
+    const {user} = useAuth()
     const [issues, setIssues] = useState([])
     const [issueModal, setIssueModal] = useState(false)
     const [newIssueModal, setNewIssueModal] = useState(false)
@@ -60,7 +62,8 @@ function AddLog() {
                         "covid": covidRef.current.value ? covidRef.current.value : 0,
                         "compounding": compoundingRef.current.value ? compoundingRef.current.value : 0,
                         "yellowCards": yellowCardsRef.current.value ? yellowCardsRef.current.value : 0,
-                        "issues": issues
+                        "issues": issues,
+                        "userId" : user.uid
                 })
             })
             setError("")
@@ -69,7 +72,6 @@ function AddLog() {
             setError('Please enter the date')
 
         }
-        console.log(covidRef.current.value)
     }
 
     const showIssue = (issue) =>{

@@ -6,13 +6,13 @@ import graphLogo from '../graph.svg'
 import {ImEnter} from 'react-icons/im'
 function Home() {
     const navigate = useNavigate()
-    const { anonLogin } = useAuth()
+    const { login } = useAuth()
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState();
 
     const demoLogin = async() =>{
         setLoading(true)
-        const error = await anonLogin()
+        const error = await login("guest-user@guest.com", "guest-password")
         if(error){
             setLoading(false)
             return setError(error.message)
@@ -31,7 +31,6 @@ function Home() {
                 </div>
                 <p className='login-header'>A webapp designed to help pharmacies keep logs of their sales and prescriptions as well as report any issues on any given day. Once enough logs are entered the data is displayed in the user's dashboard, allowing them to analyse their day to day operations and make more informed business decisions.</p>
             </div>
-            <h3>Coming Soon... The backend is still in development but will be ready soon</h3>
             <div className="demo-description">
                 <h3>Want to try it for yourself?</h3>
                 <p>Simply click on the "Demo Login" button and you will be directed to a fully functioning version of the webapp with prepopulated dataset.</p>

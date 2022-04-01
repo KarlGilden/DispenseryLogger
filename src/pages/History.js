@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import HistoryCard from '../components/HistoryCard'
 import '../css/History.css'
+import {useAuth} from '../contexts/AuthContext'
 function History() {
+    const {user} = useAuth()
     const [logs, setLogs] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(()=>{
@@ -9,7 +11,7 @@ function History() {
     })
     const fetchLogs = () => {
         setLoading(true)
-        fetch('https://localhost:44326/api/GetAllLogs')
+        fetch('https://localhost:44326/api/GetAllLogs/'+user.uid)
         .then(response => response.json())
         .then(data => {
             setLogs(data)

@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import Button from '../components/Button'
 import '../css/Dashboard.css'
+import { useAuth } from '../contexts/AuthContext'
+
 import { Tooltip, CartesianGrid, XAxis, YAxis, LineChart, Line } from 'recharts';
 
 function Dashboard() {
+  const {user} = useAuth()
   const [loading, setLoading] = useState()
   const [data, setData] = useState([])
   const [selection, setSelection] = useState('Aclasta')
-  const [startDate, setStartDate] = useState('2022-03-02')
-  const [endDate, setEndDate] = useState('2022-03-16')
+  const [startDate, setStartDate] = useState('2022-03-01')
+  const [endDate, setEndDate] = useState('2022-03-31')
   const [dataTimeframe, setDataTimeframe] = useState("GetGraphData")
   useEffect(()=>{
     getSingleStat()
@@ -16,7 +19,8 @@ function Dashboard() {
 
   const getSingleStat =  async () => {
     setLoading(true)
-    await fetch('https://localhost:44326/api/'+dataTimeframe+'/'+selection +'/'+startDate+'/'+endDate)
+    console.log(user.uid)
+    await fetch('https://localhost:44326/api/'+dataTimeframe+'/'+selection +'/'+startDate+'/'+endDate+'/'+user.uid)
     .then(response => response.json())
     .then(data => {
       setData(data)  
