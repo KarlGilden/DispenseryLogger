@@ -20,7 +20,7 @@ function Dashboard() {
   const getSingleStat =  async () => {
     setLoading(true)
     console.log(user.uid)
-    await fetch('https://localhost:44326/api/'+dataTimeframe+'/'+selection +'/'+startDate+'/'+endDate+'/'+user.uid)
+    await fetch('https://dispenseryloggerapi20220401231831.azurewebsites.net/api/'+dataTimeframe+'/'+selection +'/'+startDate+'/'+endDate+'/'+user.uid)
     .then(response => response.json())
     .then(data => {
       setData(data)  

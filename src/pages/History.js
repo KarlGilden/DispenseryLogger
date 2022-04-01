@@ -11,7 +11,7 @@ function History() {
     })
     const fetchLogs = () => {
         setLoading(true)
-        fetch('https://localhost:44326/api/GetAllLogs/'+user.uid)
+        fetch('https://dispenseryloggerapi20220401231831.azurewebsites.net/api/GetAllLogs/'+user.uid)
         .then(response => response.json())
         .then(data => {
             setLogs(data)

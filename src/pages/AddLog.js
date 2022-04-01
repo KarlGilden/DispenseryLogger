@@ -40,7 +40,7 @@ function AddLog() {
 
     const handleSubmit = async () => {
         if(dateRef.current.value){
-            await fetch('https://localhost:44326/api/AddLog',
+            await fetch('https://dispenseryloggerapi20220401231831.azurewebsites.net/api/AddLog',
             {
                 method: 'POST',
                 headers: {
