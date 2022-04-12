@@ -6,9 +6,11 @@ function History() {
     const {user} = useAuth()
     const [logs, setLogs] = useState([])
     const [loading, setLoading] = useState(true)
+
     useEffect(()=>{
         fetchLogs();
     })
+
     const fetchLogs = () => {
         setLoading(true)
         fetch('https://dispenseryloggerapi20220401231831.azurewebsites.net/api/GetAllLogs/'+user.uid)
@@ -18,6 +20,7 @@ function History() {
         })
         setLoading(false)
     }
+    
   return (
     <div className='history-page'>
         {loading ? 
