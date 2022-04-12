@@ -3,7 +3,7 @@ import Button from '../components/Button'
 import '../css/Dashboard.css'
 import { useAuth } from '../contexts/AuthContext'
 
-import { Tooltip, CartesianGrid, XAxis, YAxis, LineChart, Line } from 'recharts';
+import { Tooltip, CartesianGrid, XAxis, YAxis, LineChart, Line, ResponsiveContainer } from 'recharts';
 
 function Dashboard() {
   const {user} = useAuth()
@@ -164,8 +164,9 @@ function Dashboard() {
         {loading ? 
           <p>loading...</p> 
           : 
+          <>
+          <p className='no-data-error'>{noDataError}</p>
           <div className='data-display'>
-            <p className='no-data-error'>{noDataError}</p>
             <h1>Statistics</h1>
             <div className="date-inputs">
               <div className="date-range-inputs">
@@ -204,14 +205,18 @@ function Dashboard() {
 
 
             </div>
-            <LineChart width={730} height={250} data={data}
-              margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="date" />
-              <YAxis />
-              <Tooltip />
-              <Line type="monotone" dataKey="data" stroke="#8884d8" />
-            </LineChart>
+            <ResponsiveContainer>
+
+              <LineChart width={730} height={250} data={data}
+                margin={{ top: 5, right: 20, left: -20, bottom: 5 }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis scaleToFit={true} dataKey="date" />
+                <YAxis />
+                <Tooltip />
+                <Line type="monotone" dataKey="data" stroke="#8884d8" />
+              </LineChart>
+            
+            </ResponsiveContainer>
 
             <div className="time-buttons">
               <Button func={()=>setDataTimeframe("GetGraphData")} text={"Daily"} />
@@ -219,6 +224,7 @@ function Dashboard() {
             </div>
 
           </div>
+          </>
           
         }
     </div>
