@@ -223,7 +223,7 @@ function AddLog() {
                 <input type="number" ref={covidRef}/> 
             </div>
         </div>
-        <div>
+        <div className='problems-wrapper-wrapper'>
         <div className="problems-wrapper">
             <div className="problems-header">
                 <h2>Issues</h2>
